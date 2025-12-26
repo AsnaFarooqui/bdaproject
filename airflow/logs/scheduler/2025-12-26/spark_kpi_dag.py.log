@@ -4004,3 +4004,153 @@ jinja2.exceptions.TemplateNotFound: bash /opt/scripts/run_spark_kpi.sh
 [2025-12-26T18:15:26.846+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:15:26.846+0000] {dag.py:3096} INFO - Sync 1 DAGs
 [2025-12-26T18:15:26.874+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:15:26.874+0000] {dag.py:3954} INFO - Setting next_dagrun for spark_kpi_pipeline to 2025-12-26 18:15:00+00:00, run_after=2025-12-26 18:16:00+00:00
 [2025-12-26T18:15:26.904+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/spark_kpi_dag.py took 0.122 seconds
+[2025-12-26T18:15:57.124+0000] {processor.py:161} INFO - Started process (PID=268) to work on /opt/airflow/dags/spark_kpi_dag.py
+[2025-12-26T18:15:57.126+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/spark_kpi_dag.py for tasks to queue
+[2025-12-26T18:15:57.129+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:15:57.128+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/spark_kpi_dag.py
+[2025-12-26T18:15:57.142+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:15:57.141+0000] {templater.py:93} ERROR - Failed to resolve template field 'bash_command'
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/template/templater.py", line 91, in resolve_template_files
+    setattr(self, field, env.loader.get_source(env, content)[0])  # type: ignore
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/jinja2/loaders.py", line 204, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: bash /opt/scripts/run_spark_kpi.sh
+[2025-12-26T18:15:57.147+0000] {processor.py:840} INFO - DAG(s) 'spark_kpi_pipeline' retrieved from /opt/airflow/dags/spark_kpi_dag.py
+[2025-12-26T18:15:57.172+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:15:57.172+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-26T18:15:57.198+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:15:57.197+0000] {dag.py:3954} INFO - Setting next_dagrun for spark_kpi_pipeline to 2025-12-26 18:15:00+00:00, run_after=2025-12-26 18:16:00+00:00
+[2025-12-26T18:15:57.224+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/spark_kpi_dag.py took 0.106 seconds
+[2025-12-26T18:16:27.467+0000] {processor.py:161} INFO - Started process (PID=279) to work on /opt/airflow/dags/spark_kpi_dag.py
+[2025-12-26T18:16:27.468+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/spark_kpi_dag.py for tasks to queue
+[2025-12-26T18:16:27.471+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:16:27.471+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/spark_kpi_dag.py
+[2025-12-26T18:16:27.486+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:16:27.485+0000] {templater.py:93} ERROR - Failed to resolve template field 'bash_command'
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/template/templater.py", line 91, in resolve_template_files
+    setattr(self, field, env.loader.get_source(env, content)[0])  # type: ignore
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/jinja2/loaders.py", line 204, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: bash /opt/scripts/run_spark_kpi.sh
+[2025-12-26T18:16:27.492+0000] {processor.py:840} INFO - DAG(s) 'spark_kpi_pipeline' retrieved from /opt/airflow/dags/spark_kpi_dag.py
+[2025-12-26T18:16:27.517+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:16:27.517+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-26T18:16:27.545+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:16:27.544+0000] {dag.py:3954} INFO - Setting next_dagrun for spark_kpi_pipeline to 2025-12-26 18:16:00+00:00, run_after=2025-12-26 18:17:00+00:00
+[2025-12-26T18:16:27.571+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/spark_kpi_dag.py took 0.112 seconds
+[2025-12-26T18:16:57.997+0000] {processor.py:161} INFO - Started process (PID=280) to work on /opt/airflow/dags/spark_kpi_dag.py
+[2025-12-26T18:16:57.998+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/spark_kpi_dag.py for tasks to queue
+[2025-12-26T18:16:58.000+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:16:57.999+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/spark_kpi_dag.py
+[2025-12-26T18:16:58.013+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:16:58.012+0000] {templater.py:93} ERROR - Failed to resolve template field 'bash_command'
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/template/templater.py", line 91, in resolve_template_files
+    setattr(self, field, env.loader.get_source(env, content)[0])  # type: ignore
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/jinja2/loaders.py", line 204, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: bash /opt/scripts/run_spark_kpi.sh
+[2025-12-26T18:16:58.018+0000] {processor.py:840} INFO - DAG(s) 'spark_kpi_pipeline' retrieved from /opt/airflow/dags/spark_kpi_dag.py
+[2025-12-26T18:16:58.042+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:16:58.041+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-26T18:16:58.067+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:16:58.066+0000] {dag.py:3954} INFO - Setting next_dagrun for spark_kpi_pipeline to 2025-12-26 18:16:00+00:00, run_after=2025-12-26 18:17:00+00:00
+[2025-12-26T18:16:58.091+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/spark_kpi_dag.py took 0.102 seconds
+[2025-12-26T18:17:28.281+0000] {processor.py:161} INFO - Started process (PID=291) to work on /opt/airflow/dags/spark_kpi_dag.py
+[2025-12-26T18:17:28.283+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/spark_kpi_dag.py for tasks to queue
+[2025-12-26T18:17:28.285+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:17:28.284+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/spark_kpi_dag.py
+[2025-12-26T18:17:28.300+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:17:28.298+0000] {templater.py:93} ERROR - Failed to resolve template field 'bash_command'
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/template/templater.py", line 91, in resolve_template_files
+    setattr(self, field, env.loader.get_source(env, content)[0])  # type: ignore
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/jinja2/loaders.py", line 204, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: bash /opt/scripts/run_spark_kpi.sh
+[2025-12-26T18:17:28.305+0000] {processor.py:840} INFO - DAG(s) 'spark_kpi_pipeline' retrieved from /opt/airflow/dags/spark_kpi_dag.py
+[2025-12-26T18:17:28.329+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:17:28.329+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-26T18:17:28.355+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:17:28.354+0000] {dag.py:3954} INFO - Setting next_dagrun for spark_kpi_pipeline to 2025-12-26 18:17:00+00:00, run_after=2025-12-26 18:18:00+00:00
+[2025-12-26T18:17:28.380+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/spark_kpi_dag.py took 0.106 seconds
+[2025-12-26T18:17:58.520+0000] {processor.py:161} INFO - Started process (PID=292) to work on /opt/airflow/dags/spark_kpi_dag.py
+[2025-12-26T18:17:58.521+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/spark_kpi_dag.py for tasks to queue
+[2025-12-26T18:17:58.523+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:17:58.522+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/spark_kpi_dag.py
+[2025-12-26T18:17:58.536+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:17:58.535+0000] {templater.py:93} ERROR - Failed to resolve template field 'bash_command'
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/template/templater.py", line 91, in resolve_template_files
+    setattr(self, field, env.loader.get_source(env, content)[0])  # type: ignore
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/jinja2/loaders.py", line 204, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: bash /opt/scripts/run_spark_kpi.sh
+[2025-12-26T18:17:58.541+0000] {processor.py:840} INFO - DAG(s) 'spark_kpi_pipeline' retrieved from /opt/airflow/dags/spark_kpi_dag.py
+[2025-12-26T18:17:58.564+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:17:58.563+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-26T18:17:58.589+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:17:58.589+0000] {dag.py:3954} INFO - Setting next_dagrun for spark_kpi_pipeline to 2025-12-26 18:17:00+00:00, run_after=2025-12-26 18:18:00+00:00
+[2025-12-26T18:17:58.612+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/spark_kpi_dag.py took 0.100 seconds
+[2025-12-26T18:18:29.409+0000] {processor.py:161} INFO - Started process (PID=303) to work on /opt/airflow/dags/spark_kpi_dag.py
+[2025-12-26T18:18:29.413+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/spark_kpi_dag.py for tasks to queue
+[2025-12-26T18:18:29.415+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:18:29.415+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/spark_kpi_dag.py
+[2025-12-26T18:18:29.431+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:18:29.429+0000] {templater.py:93} ERROR - Failed to resolve template field 'bash_command'
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/template/templater.py", line 91, in resolve_template_files
+    setattr(self, field, env.loader.get_source(env, content)[0])  # type: ignore
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/jinja2/loaders.py", line 204, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: bash /opt/scripts/run_spark_kpi.sh
+[2025-12-26T18:18:29.437+0000] {processor.py:840} INFO - DAG(s) 'spark_kpi_pipeline' retrieved from /opt/airflow/dags/spark_kpi_dag.py
+[2025-12-26T18:18:29.466+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:18:29.465+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-26T18:18:29.493+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:18:29.493+0000] {dag.py:3954} INFO - Setting next_dagrun for spark_kpi_pipeline to 2025-12-26 18:18:00+00:00, run_after=2025-12-26 18:19:00+00:00
+[2025-12-26T18:18:29.525+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/spark_kpi_dag.py took 0.125 seconds
+[2025-12-26T18:18:59.650+0000] {processor.py:161} INFO - Started process (PID=304) to work on /opt/airflow/dags/spark_kpi_dag.py
+[2025-12-26T18:18:59.651+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/spark_kpi_dag.py for tasks to queue
+[2025-12-26T18:18:59.653+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:18:59.652+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/spark_kpi_dag.py
+[2025-12-26T18:18:59.667+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:18:59.666+0000] {templater.py:93} ERROR - Failed to resolve template field 'bash_command'
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/template/templater.py", line 91, in resolve_template_files
+    setattr(self, field, env.loader.get_source(env, content)[0])  # type: ignore
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/jinja2/loaders.py", line 204, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: bash /opt/scripts/run_spark_kpi.sh
+[2025-12-26T18:18:59.672+0000] {processor.py:840} INFO - DAG(s) 'spark_kpi_pipeline' retrieved from /opt/airflow/dags/spark_kpi_dag.py
+[2025-12-26T18:18:59.694+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:18:59.694+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-26T18:18:59.720+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:18:59.720+0000] {dag.py:3954} INFO - Setting next_dagrun for spark_kpi_pipeline to 2025-12-26 18:18:00+00:00, run_after=2025-12-26 18:19:00+00:00
+[2025-12-26T18:18:59.747+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/spark_kpi_dag.py took 0.104 seconds
+[2025-12-26T18:19:30.554+0000] {processor.py:161} INFO - Started process (PID=315) to work on /opt/airflow/dags/spark_kpi_dag.py
+[2025-12-26T18:19:30.558+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/spark_kpi_dag.py for tasks to queue
+[2025-12-26T18:19:30.561+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:19:30.560+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/spark_kpi_dag.py
+[2025-12-26T18:19:30.576+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:19:30.574+0000] {templater.py:93} ERROR - Failed to resolve template field 'bash_command'
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/template/templater.py", line 91, in resolve_template_files
+    setattr(self, field, env.loader.get_source(env, content)[0])  # type: ignore
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/jinja2/loaders.py", line 204, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: bash /opt/scripts/run_spark_kpi.sh
+[2025-12-26T18:19:30.582+0000] {processor.py:840} INFO - DAG(s) 'spark_kpi_pipeline' retrieved from /opt/airflow/dags/spark_kpi_dag.py
+[2025-12-26T18:19:30.609+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:19:30.609+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-26T18:19:30.645+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:19:30.644+0000] {dag.py:3954} INFO - Setting next_dagrun for spark_kpi_pipeline to 2025-12-26 18:19:00+00:00, run_after=2025-12-26 18:20:00+00:00
+[2025-12-26T18:19:30.687+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/spark_kpi_dag.py took 0.140 seconds
+[2025-12-26T18:20:00.915+0000] {processor.py:161} INFO - Started process (PID=316) to work on /opt/airflow/dags/spark_kpi_dag.py
+[2025-12-26T18:20:00.916+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/spark_kpi_dag.py for tasks to queue
+[2025-12-26T18:20:00.919+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:20:00.919+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/spark_kpi_dag.py
+[2025-12-26T18:20:00.937+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:20:00.935+0000] {templater.py:93} ERROR - Failed to resolve template field 'bash_command'
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/template/templater.py", line 91, in resolve_template_files
+    setattr(self, field, env.loader.get_source(env, content)[0])  # type: ignore
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/jinja2/loaders.py", line 204, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: bash /opt/scripts/run_spark_kpi.sh
+[2025-12-26T18:20:00.944+0000] {processor.py:840} INFO - DAG(s) 'spark_kpi_pipeline' retrieved from /opt/airflow/dags/spark_kpi_dag.py
+[2025-12-26T18:20:00.975+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:20:00.975+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-26T18:20:01.008+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:20:01.008+0000] {dag.py:3954} INFO - Setting next_dagrun for spark_kpi_pipeline to 2025-12-26 18:19:00+00:00, run_after=2025-12-26 18:20:00+00:00
+[2025-12-26T18:20:01.048+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/spark_kpi_dag.py took 0.142 seconds
+[2025-12-26T18:20:31.605+0000] {processor.py:161} INFO - Started process (PID=327) to work on /opt/airflow/dags/spark_kpi_dag.py
+[2025-12-26T18:20:31.607+0000] {processor.py:830} INFO - Processing file /opt/airflow/dags/spark_kpi_dag.py for tasks to queue
+[2025-12-26T18:20:31.610+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:20:31.609+0000] {dagbag.py:545} INFO - Filling up the DagBag from /opt/airflow/dags/spark_kpi_dag.py
+[2025-12-26T18:20:31.624+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:20:31.623+0000] {templater.py:93} ERROR - Failed to resolve template field 'bash_command'
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/template/templater.py", line 91, in resolve_template_files
+    setattr(self, field, env.loader.get_source(env, content)[0])  # type: ignore
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/jinja2/loaders.py", line 204, in get_source
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: bash /opt/scripts/run_spark_kpi.sh
+[2025-12-26T18:20:31.630+0000] {processor.py:840} INFO - DAG(s) 'spark_kpi_pipeline' retrieved from /opt/airflow/dags/spark_kpi_dag.py
+[2025-12-26T18:20:31.657+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:20:31.657+0000] {dag.py:3096} INFO - Sync 1 DAGs
+[2025-12-26T18:20:31.685+0000] {logging_mixin.py:188} INFO - [2025-12-26T18:20:31.685+0000] {dag.py:3954} INFO - Setting next_dagrun for spark_kpi_pipeline to 2025-12-26 18:20:00+00:00, run_after=2025-12-26 18:21:00+00:00
+[2025-12-26T18:20:31.711+0000] {processor.py:183} INFO - Processing /opt/airflow/dags/spark_kpi_dag.py took 0.114 seconds
