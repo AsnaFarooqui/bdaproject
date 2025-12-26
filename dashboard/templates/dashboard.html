@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BDA KPI Dashboard</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+<h2>Sales KPIs</h2>
+
+<div style="width: 45%; float:left;">
+  <h3>Total Sales by Minute</h3>
+  <canvas id="salesChart"></canvas>
+</div>
+
+<div style="width: 45%; float:right;">
+  <h3>Total Orders by Minute</h3>
+  <canvas id="ordersChart"></canvas>
+</div>
+
+<div style="clear:both;"></div>
+
+<hr>
+
+<div style="width: 45%; float:left;">
+  <h3>Sales by Product Category</h3>
+  <canvas id="categoryChart"></canvas>
+</div>
+
+<div style="width: 45%; float:right;">
+  <h3>Sales by State</h3>
+  <canvas id="stateChart"></canvas>
+</div>
+
+<script>
+async function loadData() {
+    const res = await fetch("/kpi/data");
+    const data = await res.json();
+
+    console.log("API Data:", data);
+
+    const minutes = data.map(d => d.minute);
+    const sales = data.map(d => d.total_sales);
+    const orders = data.map(d => d.total_orders);
+
+    // Aggregate by category
+    const categoryTotals = {};
+    data.forEach(d => {
+        categoryTotals[d.product_category] =
+            (categoryTotals[d.product_category] || 0) + d.total_sales;
+    });
+
+    // Aggregate by state
+    const stateTotals = {};
+    data.forEach(d => {
+        stateTotals[d.customer_state] =
+            (stateTotals[d.customer_state] || 0) + d.total_sales;
+    });
+
+    // ---------------- Charts ----------------
+
+    new Chart(document.getElementById("salesChart"), {
+        type: "line",
+        data: {
+            labels: minutes,
+            datasets: [{
+                label: "Total Sales",
+                data: sales
+            }]
+        }
+    });
+
+    new Chart(document.getElementById("ordersChart"), {
+        type: "line",
+        data: {
+            labels: minutes,
+            datasets: [{
+                label: "Total Orders",
+                data: orders
+            }]
+        }
+    });
+
+    new Chart(document.getElementById("categoryChart"), {
+        type: "bar",
+        data: {
+            labels: Object.keys(categoryTotals),
+            datasets: [{
+                label: "Sales",
+                data: Object.values(categoryTotals)
+            }]
+        }
+    });
+
+    new Chart(document.getElementById("stateChart"), {
+        type: "bar",
+        data: {
+            labels: Object.keys(stateTotals),
+            datasets: [{
+                label: "Sales",
+                data: Object.values(stateTotals)
+            }]
+        }
+    });
+}
+
+loadData();
+</script>
+
+</body>
+</html>

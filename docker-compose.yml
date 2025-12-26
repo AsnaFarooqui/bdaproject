@@ -1,0 +1,133 @@
+# version: "3.8"
+
+services:
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.4.0
+    container_name: zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+    ports:
+      - "2181:2181"
+
+  kafka:
+    image: confluentinc/cp-kafka:7.4.0
+    container_name: kafka
+    depends_on:
+      - zookeeper
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+  mongo:
+    image: mongo:4.4
+    container_name: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+    restart: always
+
+  spark:
+    image: apache/spark:3.5.1
+    container_name: spark
+    user: 0:0
+    depends_on:
+      - mongo
+    volumes:
+      - ./spark:/opt/spark-apps
+    environment:
+      SPARK_MODE: driver
+    command: sleep infinity
+    ports:
+      - "8081:8081"
+      - "7077:7077"
+
+  generator:
+    build: ./producer
+    container_name: bda-generator
+    depends_on:
+      - kafka
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+    restart: always
+
+  consumer:
+    build: ./consumer
+    container_name: bda-consumer
+    depends_on:
+      - kafka
+      - mongo
+    environment:
+      KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      MONGO_URI: mongodb://mongo:27017
+    restart: always
+
+  airflow-scheduler:
+    image: apache/airflow:2.9.1
+    container_name: airflow-scheduler
+    user: "50000:0"
+    depends_on:
+      - spark
+      - mongo
+    environment:
+      AIRFLOW__CORE__EXECUTOR: SequentialExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: sqlite:////opt/airflow/airflow.db
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs
+      - ./airflow/plugins:/opt/airflow/plugins
+      - ./spark:/opt/spark-apps
+      - ./airflow/entrypoint.sh:/entrypoint.sh
+      - airflow_data:/opt/airflow
+      - ./scripts:/opt/scripts
+    command: ["bash", "/entrypoint.sh", "scheduler"]
+    restart: always
+
+  airflow-webserver:
+    image: apache/airflow:2.9.1
+    container_name: airflow-webserver
+    user: "50000:0"
+    depends_on:
+      - spark
+      - mongo
+      - airflow-scheduler
+    environment:
+      AIRFLOW__CORE__EXECUTOR: SequentialExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: sqlite:////opt/airflow/airflow.db
+      AIRFLOW__CORE__LOAD_EXAMPLES: "False"
+    volumes:
+      - ./airflow/dags:/opt/airflow/dags
+      - ./airflow/logs:/opt/airflow/logs
+      - ./airflow/plugins:/opt/airflow/plugins
+      - ./spark:/opt/spark-apps
+      - ./airflow/entrypoint.sh:/entrypoint.sh
+      - airflow_data:/opt/airflow
+      - ./scripts:/opt/scripts
+    command: ["bash", "/entrypoint.sh", "webserver"]
+    ports:
+      - "8080:8080"
+    restart: always
+
+
+  dashboard:
+    build: ./dashboard
+    container_name: dashboard
+    depends_on:
+      - mongo
+    volumes:
+      - ./dashboard:/app
+    ports:
+      - "5000:5000"
+    restart: always
+
+
+volumes:
+  mongo-data:
+  airflow_data:

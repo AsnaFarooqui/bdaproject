@@ -1,0 +1,3 @@
+[2025-12-26T17:30:13.863+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-12-26T17:30:13.889+0000] {taskinstance.py:2066} INFO - Dependencies not met for <TaskInstance: spark_kpi_pipeline.run_spark_kpi_job scheduled__2025-12-26T17:28:00+00:00 [failed]>, dependency 'Task Instance State' FAILED: Task is in the 'failed' state.
+[2025-12-26T17:30:13.889+0000] {local_task_job_runner.py:163} INFO - Task is not able to be run

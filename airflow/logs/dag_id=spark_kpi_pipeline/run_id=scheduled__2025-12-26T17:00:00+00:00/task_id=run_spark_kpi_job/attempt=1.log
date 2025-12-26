@@ -1,0 +1,24 @@
+[2025-12-26T17:01:04.868+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2025-12-26T17:01:04.894+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: spark_kpi_pipeline.run_spark_kpi_job scheduled__2025-12-26T17:00:00+00:00 [queued]>
+[2025-12-26T17:01:04.902+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: spark_kpi_pipeline.run_spark_kpi_job scheduled__2025-12-26T17:00:00+00:00 [queued]>
+[2025-12-26T17:01:04.902+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 2
+[2025-12-26T17:01:04.919+0000] {taskinstance.py:2330} INFO - Executing <Task(BashOperator): run_spark_kpi_job> on 2025-12-26 17:00:00+00:00
+[2025-12-26T17:01:04.927+0000] {standard_task_runner.py:63} INFO - Started process 96 to run task
+[2025-12-26T17:01:04.931+0000] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'spark_kpi_pipeline', 'run_spark_kpi_job', 'scheduled__2025-12-26T17:00:00+00:00', '--job-id', '9', '--raw', '--subdir', 'DAGS_FOLDER/spark_kpi_dag.py', '--cfg-path', '/tmp/tmp7dp9gj6f']
+[2025-12-26T17:01:04.933+0000] {standard_task_runner.py:91} INFO - Job 9: Subtask run_spark_kpi_job
+[2025-12-26T17:01:04.984+0000] {task_command.py:426} INFO - Running <TaskInstance: spark_kpi_pipeline.run_spark_kpi_job scheduled__2025-12-26T17:00:00+00:00 [running]> on host ab148136ea2d
+[2025-12-26T17:01:05.067+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='spark_kpi_pipeline' AIRFLOW_CTX_TASK_ID='run_spark_kpi_job' AIRFLOW_CTX_EXECUTION_DATE='2025-12-26T17:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-12-26T17:00:00+00:00'
+[2025-12-26T17:01:05.068+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2025-12-26T17:01:05.086+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-12-26T17:01:05.087+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\n    /usr/bin/curl -X POST http://spark:6066/v1/submissions/create     -H \'Content-Type: application/json\'     -d \'{\n        "action": "CreateSubmissionRequest",\n        "appResource": "/opt/spark-apps/jobs/kpi_aggregation.py",\n        "clientSparkVersion": "3.5.1",\n        "mainClass": "org.apache.spark.deploy.PythonRunner",\n        "appArgs": [],\n        "environmentVariables": {\n            "PYSPARK_PYTHON": "python3"\n        },\n        "sparkProperties": {\n            "spark.master": "spark://spark:7077",\n            "spark.submit.deployMode": "cluster",\n            "spark.driver.supervise": "false"\n        }\n    }\'\n        bash_command="""\n    docker exec spark       /opt/spark/bin/spark-submit       --packages org.mongodb.spark:mongo-spark-connector_2.12:2.4.3       /opt/spark-apps/jobs/kpi_aggregation.py\n    """']
+[2025-12-26T17:01:05.102+0000] {subprocess.py:86} INFO - Output:
+[2025-12-26T17:01:05.115+0000] {subprocess.py:93} INFO -   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+[2025-12-26T17:01:05.116+0000] {subprocess.py:93} INFO -                                  Dload  Upload   Total   Spent    Left  Speed
+[2025-12-26T17:01:05.117+0000] {subprocess.py:93} INFO -   0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
+[2025-12-26T17:01:05.118+0000] {subprocess.py:93} INFO - curl: (7) Failed to connect to spark port 6066 after 2 ms: Couldn't connect to server
+[2025-12-26T17:01:05.119+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-12-26T17:01:05.120+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2025-12-26T17:01:05.141+0000] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=spark_kpi_pipeline, task_id=run_spark_kpi_job, run_id=scheduled__2025-12-26T17:00:00+00:00, execution_date=20251226T170000, start_date=20251226T170104, end_date=20251226T170105
+[2025-12-26T17:01:05.186+0000] {local_task_job_runner.py:240} INFO - Task exited with return code 0
+[2025-12-26T17:01:05.198+0000] {taskinstance.py:3498} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-26T17:01:05.198+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
